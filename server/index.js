@@ -11,13 +11,12 @@ app.use(cors());
 
 //Test
 app.get("/api/message/", (req, res) => {
-    console.log("Test Success");
-    res.send({message: "Hello World!"});
+    res.send({message: "Algorithm Visualizer"});
 })
 
 //Single Page
 if(process.env.NODE_ENV === "production"){
-    app.use(express.static(__dirname + "/public/"));
+    app.use(express.static(__dirname + "/build/"));
     app.get(/.*/, (req, res) => {
         res.sendFile(__dirname + "/public/index.html");
     })
